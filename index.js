@@ -1,4 +1,5 @@
 const solve = require("./MazeSolver");
+const solveRecursive = require("./MazeSolverRecursive");
 
 // Test the implementation
 let maze = [
@@ -12,7 +13,7 @@ let maze = [
   [0, 0, 0, 0, 0, 0, 0, 1] //7
 ];
 
-let steps = solve(maze);
+let steps = solveRecursive(maze);
 
 let solved = maze.map(el => el.map(el => el));
 
