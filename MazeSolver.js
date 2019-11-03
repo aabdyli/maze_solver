@@ -45,9 +45,7 @@ function solve(maze, start = [], finish = [], route = []) {
       let checkJ = j + direction[1];
 
       // Block out of bounds moves
-      if (checkI < 0 || checkJ < 0) {
-        break;
-      }
+      if (checkI < 0 || checkJ < 0 || checkI > 7 || checkJ > 7) continue;
 
       if (
         maze[checkI][checkJ] === 1 &&

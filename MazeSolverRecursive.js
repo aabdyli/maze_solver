@@ -42,7 +42,7 @@ function solve(maze, start = [], finish = [], route = [], visited = []) {
     for (let direction of directions) {
       let checkI = i + direction[0];
       let checkJ = j + direction[1];
-      if (checkI < 0 || checkJ < 0) return;
+      if (checkI < 0 || checkJ < 0 || checkI > 7 || checkJ > 7) continue;
 
       if (
         maze[checkI][checkJ] === 1 &&
@@ -53,9 +53,11 @@ function solve(maze, start = [], finish = [], route = [], visited = []) {
       if (route.length === 0) {
         throw "No route found";
       }
-      const lastEl = route.length - 1;
-      if (route[lastEl][0] == endI && route[lastEl][0] == endJ) return route;
-      [i, j] = route[lastEl]; // stack.peek()
+      if (
+        route[route.length - 1][0] == endI &&
+        route[route.length - 1][1] == endJ
+      )
+        return route;
     }
     route.pop();
     return;
